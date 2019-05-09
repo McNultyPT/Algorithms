@@ -36,6 +36,7 @@ def recipe_batches(recipe, ingredients):
     if len(recipe_values) > len(batches):
         return 0
     else:
+        print(batches)
         return min(batches)
 
 if __name__ == '__main__':
