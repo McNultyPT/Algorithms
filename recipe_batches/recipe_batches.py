@@ -1,10 +1,43 @@
 #!/usr/bin/python
+pizza = {
+  'dough': 1,
+  'cheese': 12,
+  'sauce': 5
+}
+
+ingredients = {
+  'dough': 1,
+  'cheese': 7,
+  'sauce': 5
+}
 
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+    batches = []
+    recipe_values = [i for i in recipe.values()]
+    ingredient_values = [j for j in ingredients.values()]
 
+    for i in range(len(recipe_values)):
+        for j in range(len(ingredient_values)):
+            if i == j:
+                if ingredient_values[j] > recipe_values[i]:
+                    print(ingredient_values)
+                    print(recipe_values)
+                    num = recipe_values[i] % ingredient_values[j]
+                    print(num)
+                    batch = int(ingredient_values[j] // num)
+                    print(batch)
+                    batches.append(batch)
+                elif ingredient_values[j] == recipe_values[i]:
+                    batches.append(1)
+                else:
+                    batches.append(0)
+    if len(recipe_values) > len(batches):
+        return 0
+    else:
+        print(batches)
+        return min(batches)
 
 if __name__ == '__main__':
   # Change the entries of these dictionaries to test 
